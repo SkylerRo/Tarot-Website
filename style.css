@@ -53,3 +53,42 @@
       height: 460px;
       margin-top: -40px;
   }
+
+  @media (max-width: 600px) {
+   body {
+ background-image: url('https://static5.depositphotos.com/1007682/443/v/450/depositphotos_4434733-stock-illustration-snow-and-stars-falling-background.jpg');
+ 
+}
+
+h1{
+    color: black;
+    text-align: center;
+    font: 20px;
+}
+
+img {
+    width: 200x;
+    height: 460px;
+    margin-top: -40px;
+    margin-right: 750px;
+}
+
+
+#app {
+    color: black;
+    font-size: 30px;
+    background-size: 20px;
+    font-family: "UnifrakturCook", cursive;
+    font-weight: 700;
+    font-style: normal;
+    display: flex;
+    justify-content: center;
+    
+    
+    
+    
+}
+
+
+
+} 
