@@ -26,6 +26,7 @@
       background-image: url('https://t4.ftcdn.net/jpg/05/68/52/47/360_F_568524709_uPCpoYap2GlQoGSfM6sg4dvSk8qtWQjO.jpg');
      background-size: cover;
      background-position: center top;
+     background-repeat: no-repeat;
   }
   
   
@@ -54,22 +55,23 @@
       margin-top: -40px;
   }
 
-  @media (max-width: 600px) {
+  @media (min-width: 300px) and (max-width: 430px) {
    body {
  background-image: url('https://static5.depositphotos.com/1007682/443/v/450/depositphotos_4434733-stock-illustration-snow-and-stars-falling-background.jpg');
- 
+ background-repeat: no-repeat;
+ background-image: cover;
 }
 
 h1{
     color: black;
     text-align: center;
-    font: 20px;
+    font-size: 20px;
 }
 
 img {
     width: 200x;
     height: 460px;
-    margin-top: -40px;
+    margin-bottom: 20px;
     margin-right: 750px;
 }
 
