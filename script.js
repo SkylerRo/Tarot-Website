@@ -29,8 +29,20 @@ const getTarot = async () => {
     const tarotArray = tarottypes.data.cards[0].name
     console.log(tarotArray)
     tarotName.innerHTML = tarotArray
+    cardImg.innerHTML = ""
+}
+
+const tarotCard = async () => {
+    const tarottypes = await axios.get('https://tarot-api-3hv5.onrender.com/api/v1/cards/random?n=1/')
+    const tarotArray = tarottypes.data.cards[0].name
+    console.log(tarotArray)
+    tarotName.innerHTML = tarotArray
     tarotDescription.innerHTML = ""
 }
+
+
+
+
  
 getFortuneBtn.addEventListener('click', () => {
     getTarot()
@@ -40,6 +52,7 @@ getFortuneBtn.addEventListener('click', () => {
 tarotName.addEventListener('click', () => {
     getTarotInfo()
 })
+
 
 
 

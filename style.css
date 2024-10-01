@@ -36,24 +36,25 @@
     font-family: "UnifrakturCook", cursive;
     font-weight: 700;
     font-style: normal;
+    margin-top: 130px;
+      width: 30%;
+      height: 50%;
+      margin-left: 520px;
     
   }
 
   #tarotDescription {
+   
     text-align: center;
     color: aliceblue;
     font-size: 30px;
     font-family: "UnifrakturCook", cursive;
-    overflow: hidden;
-   text-overflow: ellipsis;
-   display: -webkit-box;
-   -webkit-line-clamp: 3; /* number of lines to show */
-     line-clamp: 3;
-   -webkit-box-orient: horizontal;
-    
+    margin-top: 130px;
+      width: 30%;
+      height: 50%;
+      margin-left: 520px;
+   
   }
-
-
 
 
 
