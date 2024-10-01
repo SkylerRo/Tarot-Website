@@ -30,7 +30,36 @@
   }
   
   
-  
+  #tarotName {
+    text-align: center;
+    color: aliceblue;
+    font-family: "UnifrakturCook", cursive;
+    font-weight: 700;
+    font-style: normal;
+    
+  }
+
+  #tarotDescription {
+    text-align: center;
+    color: aliceblue;
+    font-size: 30px;
+    font-family: "UnifrakturCook", cursive;
+    overflow: hidden;
+   text-overflow: ellipsis;
+   display: -webkit-box;
+   -webkit-line-clamp: 3; /* number of lines to show */
+     line-clamp: 3;
+   -webkit-box-orient: horizontal;
+    
+  }
+
+
+
+
+
+
+
+
 /*   
   #app {
       color: aliceblue;

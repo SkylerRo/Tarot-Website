@@ -4,6 +4,14 @@ const getFortuneBtn = document.querySelector ('#btn')
 
 const tarotDescription = document.querySelector('#tarotDescription')
 
+const cardImg = document.querySelector('#card-img')
+
+
+
+
+
+
+
 
 const getTarotInfo =  async () => {
     const tarottypes = await axios.get('https://tarot-api-3hv5.onrender.com/api/v1/cards/random?n=1')
