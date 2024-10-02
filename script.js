@@ -1,4 +1,6 @@
-const tarotName = document.querySelector ('#tarotName')
+
+
+const tarotName = document.querySelector ('#tarotName') // Lines 1-9 are setters based on HTML file
 
 const getFortuneBtn = document.querySelector ('#btn')
 
@@ -11,7 +13,9 @@ const cardImg = document.querySelector('#card-img')
 
 
 
-
+// Line 18 this function has a timing built into the code. That timing comes up on Line 19
+// says wait for this information to retrieve successfully until this function is complete
+//line 21 gives it a direct path on where to go for the api
 
 const getTarotInfo =  async () => {
     const tarottypes = await axios.get('https://tarot-api-3hv5.onrender.com/api/v1/cards/random?n=1')
@@ -19,26 +23,36 @@ const getTarotInfo =  async () => {
     console.log(tarotArray)
     tarotDescription.innerHTML = tarotArray
     tarotName.innerHTML = ""
+    cardImg.setAttribute('src', "")
 }
 
 
 
 
 const getTarot = async () => {
-    const tarottypes = await axios.get('https://tarot-api-3hv5.onrender.com/api/v1/cards/random?n=1')
-    const tarotArray = tarottypes.data.cards[0].name
-    console.log(tarotArray)
-    tarotName.innerHTML = tarotArray
-    cardImg.innerHTML = ""
+    let tarotCard; // To store the current tarot card
+
+    while (true) {
+        const tarottypes = await axios.get('https://tarot-api-3hv5.onrender.com/api/v1/cards/random?n=1');
+        tarotCard = tarottypes.data.cards[0];
+        const tarotArray = tarotCard.name;
+
+        console.log(tarotArray);
+
+        // Clear the description for each iteration
+        tarotDescription.innerHTML = "";
+
+        if (tarotCard.type === 'major') { 
+            // Process only if the card type is 'major'
+            tarotName.innerHTML = tarotArray; // Display the name
+            cardImg.setAttribute('src', `Tarot-Card-imgs/${tarotArray}.jpg`); // Set the image source
+            break; // Exit the loop after processing a major card
+        }
+
+        // If it's a minor card, the loop will continue to fetch another card
+    }
 }
 
-const tarotCard = async () => {
-    const tarottypes = await axios.get('https://tarot-api-3hv5.onrender.com/api/v1/cards/random?n=1/')
-    const tarotArray = tarottypes.data.cards[0].name
-    console.log(tarotArray)
-    tarotName.innerHTML = tarotArray
-    tarotDescription.innerHTML = ""
-}
 
 
 
@@ -53,6 +67,9 @@ tarotName.addEventListener('click', () => {
     getTarotInfo()
 })
 
+cardImg.addEventListener('click', () => {
+    getTarotInfo()
+})
 
 
 
