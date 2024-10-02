@@ -30,7 +30,7 @@
   }
   
   
-  #tarotName {
+  /* #tarotName {
     text-align: center;
     color: aliceblue;
     font-family: "UnifrakturCook", cursive;
@@ -41,18 +41,18 @@
       height: 50%;
       margin-left: 520px;
     
-  }
+  } */
 
   #tarotDescription {
    
     text-align: center;
     color: aliceblue;
-    font-size: 30px;
+    font-size: 28px;
     font-family: "UnifrakturCook", cursive;
-    margin-top: 130px;
-      width: 30%;
+    
+      width: 35%;
       height: 50%;
-      margin-left: 520px;
+      margin-left: 465px;
    
   }
 

@@ -30,29 +30,62 @@ const getTarotInfo =  async () => {
 
 
 const getTarot = async () => {
-    let tarotCard; // To store the current tarot card
+    let tarotCard // To store the current tarot card
 
     while (true) {
-        const tarottypes = await axios.get('https://tarot-api-3hv5.onrender.com/api/v1/cards/random?n=1');
-        tarotCard = tarottypes.data.cards[0];
-        const tarotArray = tarotCard.name;
+        const tarottypes = await axios.get('https://tarot-api-3hv5.onrender.com/api/v1/cards/random?n=1')
+        tarotCard = tarottypes.data.cards[0]
+        const tarotArray = tarotCard.name
 
-        console.log(tarotArray);
+        console.log(tarotArray)
 
         // Clear the description for each iteration
         tarotDescription.innerHTML = "";
 
         if (tarotCard.type === 'major') { 
             // Process only if the card type is 'major'
-            tarotName.innerHTML = tarotArray; // Display the name
-            cardImg.setAttribute('src', `Tarot-Card-imgs/${tarotArray}.jpg`); // Set the image source
-            break; // Exit the loop after processing a major card
+            
+            cardImg.setAttribute('src', `Tarot-Card-imgs/${tarotArray}.jpg`) // Set the image source
+            break // Exit the loop after processing a major card
         }
 
         // If it's a minor card, the loop will continue to fetch another card
     }
 }
 
+
+const getTarot = async () => {
+    try {
+        while (true) {
+            // Fetch a random tarot card from the API
+            const response = await axios.get('https://tarot-api-3hv5.onrender.com/api/v1/cards/random?n=1');
+            const tarotCard = response.data.cards[0]; // Get the first card from the response
+
+            console.log(tarotCard.name); // Log the card name
+
+            // Clear previous description
+            tarotDescription.innerHTML = "";
+
+            // Check if the card type is 'major'
+            if (tarotCard.type === 'major') {
+                // Set the tarot name and description from the API response
+                tarotName.innerHTML = tarotCard.name; // Display the card name
+                cardImg.setAttribute('src', `Tarot-Card-imgs/${tarotCard.name_short}.jpg`); // Use name_short for the image
+
+                // Display the meaning of the card
+                tarotDescription.innerHTML = tarotCard.meaning_up || "Meaning not available"; // Display the meaning
+                break; // Exit the loop after processing a major card
+            }
+            // If it's a minor card, the loop will continue to fetch another card
+        }
+    } catch (error) {
+        console.error("Error fetching tarot card:", error);
+        tarotDescription.innerHTML = "An error occurred while fetching the tarot card.";
+    }
+}
+
+// Add event listeners
+getFortuneBtn.addEventListener('click', getTarot);
 
 
 
