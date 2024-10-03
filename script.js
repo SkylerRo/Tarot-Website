@@ -24,6 +24,7 @@ const getTarotInfo =  async () => {
     tarotDescription.innerHTML = tarotArray
     tarotName.innerHTML = ""
     cardImg.setAttribute('src', "")
+    
 }
 
 
