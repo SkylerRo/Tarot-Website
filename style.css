@@ -49,10 +49,10 @@
     color: aliceblue;
     font-size: 28px;
     font-family: "UnifrakturCook", cursive;
-    
-      width: 35%;
-      height: 50%;
-      margin-left: 465px;
+    display: grid;
+    width: 35%;
+    height: 50%;
+    margin-left: 465px;
    
   }
 

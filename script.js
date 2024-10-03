@@ -1,5 +1,4 @@
 
-
 const tarotName = document.querySelector ('#tarotName') // Lines 1-9 are setters based on HTML file
 
 const getFortuneBtn = document.querySelector ('#btn')
@@ -17,35 +16,37 @@ const cardImg = document.querySelector('#card-img')
 // says wait for this information to retrieve successfully until this function is complete
 //line 21 gives it a direct path on where to go for the api
 
-const getTarotInfo =  async () => {
+/*const getTarotInfo =  async () => {
     const tarottypes = await axios.get('https://tarot-api-3hv5.onrender.com/api/v1/cards/random?n=1')
     const tarotArray = tarottypes.data.cards[0].meaning_up
     console.log(tarotArray)
     tarotDescription.innerHTML = tarotArray
     tarotName.innerHTML = ""
     cardImg.setAttribute('src', "")
-    
+   
 }
+*/
 
-
+let tarotCard;
 
 
 const getTarot = async () => {
-    let tarotCard // To store the current tarot card
+   
 
     while (true) {
         const tarottypes = await axios.get('https://tarot-api-3hv5.onrender.com/api/v1/cards/random?n=1')
         tarotCard = tarottypes.data.cards[0]
         const tarotArray = tarotCard.name
+        description= tarotCard.meaning_up
 
-        console.log(tarotArray)
+        console.log(tarotCard);//console.log(tarotArray)
 
         // Clear the description for each iteration
         tarotDescription.innerHTML = "";
 
-        if (tarotCard.type === 'major') { 
+        if (tarotCard.type === 'major') {
             // Process only if the card type is 'major'
-            
+           
             cardImg.setAttribute('src', `Tarot-Card-imgs/${tarotArray}.jpg`) // Set the image source
             break // Exit the loop after processing a major card
         }
@@ -54,6 +55,14 @@ const getTarot = async () => {
     }
      
 }
+function getTarotInfo() {
+    tarotDescription.innerHTML = description
+    cardImg.setAttribute('src', "")
+    /*if (tarotCard.value_int === 5) {
+        tarotDescription.innerHTML = tarotCard.meaning_up
+    }*/
+   
+}
 
 
 
@@ -61,7 +70,7 @@ const getTarot = async () => {
  
 getFortuneBtn.addEventListener('click', () => {
     getTarot()
-}) 
+})
 
 
 tarotName.addEventListener('click', () => {
@@ -71,7 +80,6 @@ tarotName.addEventListener('click', () => {
 cardImg.addEventListener('click', () => {
     getTarotInfo()
 })
-
 
 
 
